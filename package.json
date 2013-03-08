@@ -2,7 +2,7 @@
   "name": "disposable-seraph",
   "version": "0.1.0",
   "description": "kit for testing neo4j/seraph modules",
-  "main": "testkit.js",
+  "main": "disposable-seraph.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
