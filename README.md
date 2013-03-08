@@ -1,19 +1,28 @@
-# seraph-testkit
+# disposable seraph 
 
-This is a small kit for testing with a seraph db. Requiring it will give you a
-function that will download, install, and start neo4j on an opaque port, and 
-return to you a seraph database object. 
+This is a small kit for spinning up a disposable neo4j database and wrapping it
+in a seraph object. This means that you can require this module, call the
+function, and you have a box to put your data in. No questions asked! You don't
+even need to install a database, we'll do that for you too.
 
-While it would be technically possible to clear the database between every test,
-I recommend against it: it requires stopping and starting the database, which,
-thanks to java's wonderful start times, takes over 5 seconds. Noone wants their
-mundane test suite running for over a minute every time.
+Of course, the first time you run this, it will take a few minutes to download
+neo4j. So be patient!
 
 ```
-require('seraph-testkit')(function(err, db) {
+require('disposable-seraph')(function(err, db) {
   //db = seraph object pointing to a real DB!
 })
 ```
+
+## options
+
+You can also pass an options object before the callback (or just set the opts
+on the callback itself—why the hell not!). Possible settings:
+
+* `version` - neo4j version. defaults to `1.9.M05`
+* `edition` - neo4j edition. defaults to `community`
+* `port` - port to run neo4j on. defaults to a random number between 20000 and
+  60000.
 
 ### License
 
