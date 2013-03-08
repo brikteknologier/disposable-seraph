@@ -23,7 +23,7 @@ module.exports = function(opts, cb) {
 
   var pass = function(ctx, fn, passed) {
     return function() {
-      var args = [].slice.call(args);
+      var args = [].slice.call(arguments);
       var cb = args.pop();
       args.push(function(err) { cb(err, err && passed) });
       fn.apply(ctx, args);
