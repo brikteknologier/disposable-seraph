@@ -8,9 +8,15 @@ even need to install a database, we'll do that for you too.
 Of course, the first time you run this, it will take a few minutes to download
 neo4j. So be patient!
 
+The callback for the function actually will give you two params after the err.
+The most important is of course the first, `db` (the seraph object), but you 
+also get `neosv` which is the neo4j-supervisor object wrapping the db, so you 
+can do fun stuff like stopping, starting and murdering its data!
+
 ```
-require('disposable-seraph')(function(err, db) {
+require('disposable-seraph')(function(err, db, neo) {
   //db = seraph object pointing to a real DB!
+  //neo = neo4j-supervisor object
 })
 ```
 
