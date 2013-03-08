@@ -3,7 +3,6 @@ var nsv = require('neo4j-supervisor'),
     seraph = require('seraph'),
     rand = require('randy').randInt,
     async = require('async'),
-    naan = require('naan'),
     fs = require('fs');
 
 module.exports = function(opts, cb) {
@@ -22,12 +21,21 @@ module.exports = function(opts, cb) {
     });
   };
 
+  var pass = function(ctx, fn, passed) {
+    return function() {
+      var args = [].slice.call(args);
+      var cb = args.pop();
+      args.push(function(err) { cb(err, err && passed) });
+      fn.apply(ctx, args);
+    };
+  };
+
   async.waterfall([
     getPort,
     function getNeoInstall(cb) { nvm(version, edition, cb) },
     function createSupervisor(loc, cb) { cb(null, _nsv = nsv(loc)) },
-    function setPort(neo, cb) { naan.b.wrap(neo, neo.port, neo)(port, cb) },
-    function start(neo, cb) { naan.b.wrap(neo, neo.start, neo)(cb) },
+    function setPort(neo, cb) { pass(neo, neo.port, neo)(port, cb) },
+    function start(neo, cb) { pass(neo, neo.start, neo)(cb) },
     function getEndpoint(neo, cb) { neo.endpoint(cb) },
     function createSeraph(ep, cb) { cb(null, seraph(ep), _nsv) }
   ], cb);
