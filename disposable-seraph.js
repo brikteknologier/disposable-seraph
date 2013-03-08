@@ -25,7 +25,7 @@ module.exports = function(opts, cb) {
     return function() {
       var args = [].slice.call(arguments);
       var cb = args.pop();
-      args.push(function(err) { cb(err, err && passed) });
+      args.push(function(err) { cb(err, !err && passed) });
       fn.apply(ctx, args);
     };
   };
