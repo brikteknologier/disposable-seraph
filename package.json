@@ -1,7 +1,7 @@
 {
   "name": "disposable-seraph",
   "version": "0.1.0",
-  "description": "kit for testing neo4j/seraph modules",
+  "description": "create a disposable neo4j-shaped box for jamming data into",
   "main": "disposable-seraph.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
