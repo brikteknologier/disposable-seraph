@@ -8,7 +8,7 @@ var nsv = require('neo4j-supervisor'),
 module.exports = function(opts, cb) {
   if (typeof opts == 'function') cb = opts;
   
-  var version = opts.version || '1.9.M05';
+  var version = opts.version || '1.9.M01';
   var edition = opts.edition || 'community';
   var port, _nsv;
 
