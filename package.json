@@ -1,6 +1,6 @@
 {
   "name": "disposable-seraph",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "create a disposable neo4j-shaped box for jamming data into",
   "main": "disposable-seraph.js",
   "scripts": {
