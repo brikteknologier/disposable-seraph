@@ -35,6 +35,7 @@ module.exports = function(opts, cb) {
     function getNeoInstall(cb) { nvm(version, edition, cb) },
     function createSupervisor(loc, cb) { cb(null, _nsv = nsv(loc)) },
     function setPort(neo, cb) { pass(neo, neo.port, neo)(port, cb) },
+    function stop(neo, cb) { pass(neo, neo.stop, neo)(cb) },
     function start(neo, cb) { pass(neo, neo.start, neo)(cb) },
     function getEndpoint(neo, cb) { neo.endpoint(cb) },
     function createSeraph(ep, cb) { cb(null, seraph(ep), _nsv) }
