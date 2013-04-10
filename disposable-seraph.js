@@ -30,6 +30,10 @@ module.exports = function(opts, cb) {
     };
   };
 
+  var wait = function(neo, cb) {
+    setTimeout(function() { cb(null, neo); }, 200);
+  };
+
   async.waterfall([
     getPort,
     function getNeoInstall(cb) { nvm(version, edition, cb) },
@@ -37,6 +41,7 @@ module.exports = function(opts, cb) {
     function setPort(neo, cb) { pass(neo, neo.port, neo)(port, cb) },
     function stop(neo, cb) { pass(neo, neo.stop, neo)(cb) },
     function start(neo, cb) { pass(neo, neo.start, neo)(cb) },
+    wait,
     function getEndpoint(neo, cb) { neo.endpoint(cb) },
     function createSeraph(ep, cb) { cb(null, seraph(ep), _nsv) }
   ], cb);
