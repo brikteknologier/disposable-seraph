@@ -13,7 +13,7 @@ module.exports = function(opts, cb) {
   var port = opts.port, _nsv;
 
   var getPort = function(cb) {
-    if (port) return cb(null, port);
+    if (port) return cb();
     fs.readFile(__dirname + '/neo4j.port', 'utf8', function(err, portstr) {
       port = !err && portstr ? parseInt(portstr, 10) : rand(20000, 60000);
       fs.writeFile(__dirname + '/neo4j.port', port, function(err) {
