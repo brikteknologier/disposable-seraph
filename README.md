@@ -29,6 +29,9 @@ on the callback itself—why the hell not!). Possible settings:
 * `edition` - neo4j edition. defaults to `community`
 * `port` - port to run neo4j on. defaults to a random number between 20000 and
   60000.
+* `clean` - if set to `true`, the db will be cleaned every time it is run. This
+  is useful for use in a test environment (but neo4j's startup time is not such
+  that you could clean the db for every unit test).
 
 ### License
 
