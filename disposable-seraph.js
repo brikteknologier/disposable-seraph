@@ -31,6 +31,14 @@ module.exports = function(opts, cb) {
     };
   };
 
+  var startup = function(neo, cb) {
+    if (opts.clean) pass(neo, neo.clean, neo)(cb);
+    else neo.stop(function(err) {
+      if (err) return cb(err);
+      neo.start(function(err) { err ? cb(err) : cb(null, neo); });
+    });
+  };
+
   var wait = function(neo, cb) {
     setTimeout(function() { cb(null, neo); }, 200);
   };
@@ -40,8 +48,7 @@ module.exports = function(opts, cb) {
     function getNeoInstall(cb) { nvm(version, edition, cb) },
     function createSupervisor(loc, cb) { cb(null, _nsv = nsv(loc)) },
     function setPort(neo, cb) { pass(neo, neo.port, neo)(port, cb) },
-    function stop(neo, cb) { pass(neo, neo.stop, neo)(cb) },
-    function start(neo, cb) { pass(neo, neo.start, neo)(cb) },
+    startup,
     wait,
     function getEndpoint(neo, cb) { neo.endpoint(cb) },
     function createSeraph(ep, cb) { cb(null, seraph(ep), _nsv) }
