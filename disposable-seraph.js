@@ -40,7 +40,7 @@ module.exports = function(opts, cb) {
   };
 
   var wait = function(neo, cb) {
-    setTimeout(function() { cb(null, neo); }, 200);
+    setTimeout(function() { cb(null, neo); }, 1000);
   };
 
   async.waterfall([
