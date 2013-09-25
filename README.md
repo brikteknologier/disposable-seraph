@@ -25,7 +25,7 @@ require('disposable-seraph')(function(err, db, neo) {
 You can also pass an options object before the callback (or just set the opts
 on the callback itself—why the hell not!). Possible settings:
 
-* `version` - neo4j version. defaults to `1.9.M05`
+* `version` - neo4j version. defaults to `2.0.0-M03`
 * `edition` - neo4j edition. defaults to `community`
 * `port` - port to run neo4j on. defaults to a random number between 20000 and
   60000.
