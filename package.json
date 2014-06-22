@@ -18,10 +18,10 @@
   "author": "Jon Packer",
   "license": "MIT",
   "dependencies": {
-    "neo4j-vm": "~0.1.6",
-    "seraph": "~0.9.0",
+    "async": "~0.2.6",
     "neo4j-supervisor": "~0.1.1",
+    "neo4j-vm": "^0.1.10",
     "randy": "~1.4.0",
-    "async": "~0.2.6"
+    "seraph": "~0.9.0"
   }
 }
