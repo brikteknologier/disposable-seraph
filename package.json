@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://www.github.com/brikteknologier/seraph-testkit"
+    "url": "http://www.github.com/brikteknologier/disposable-seraph"
   },
   "keywords": [
     "seraph",
