@@ -22,6 +22,6 @@
     "neo4j-supervisor": "^0.1.2",
     "neo4j-vm": "^0.1.11",
     "randy": "~1.4.0",
-    "seraph": "^0.14.0"
+    "seraph": "^0.14.1"
   }
 }
