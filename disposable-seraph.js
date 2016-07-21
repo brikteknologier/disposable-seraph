@@ -46,7 +46,7 @@ module.exports = function(opts, cb) {
   async.waterfall([
     getPort,
     function getNeoInstall(cb) { nvm(version, edition, cb) },
-    function createSupervisor(loc, cb) { cb(null, _nsv = nsv(loc)) },
+    function createSupervisor(loc, cb) { cb(null, _nsv = nsv(loc, version)) },
     function setPort(neo, cb) { pass(neo, neo.port, neo)(port, cb) },
     startup,
     wait,
